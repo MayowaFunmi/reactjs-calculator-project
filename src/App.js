@@ -6,7 +6,7 @@ const App = () => {
   const [previousValue, setPreviousValue] = useState(0);
   const [operator, setOperator] = useState('');
   // const [decStatus, setDecStatus] = useState(true);
-  const [count, setCount] = useState(1);
+  //const [count, setCount] = useState(1);
 
   const clear = () => {
     setCurrentValue(0);
@@ -18,20 +18,24 @@ const App = () => {
   };
 
   const handleNumberClick = (num) => {
-    //setCount(1);
-    if (num === 0) {
-      setCurrentValue(currentValue + '0');
-      setCount(count + 1);
-    } else if (Number.isInteger(currentValue)) {
-      setCurrentValue(currentValue * 10 + num);
-    } else {
-      //setCount(1);
-      let val = parseFloat(currentValue);
-      setCurrentValue(val + num / Math.pow(10, count));
-      setCount(count + 1);
-      // cur val is now float
-    }
+    setCurrentValue(currentValue * 10 + num);
   };
+
+  // const handleNumberClick = (num) => {
+  //   //setCount(1);
+  //   if (num === 0) {
+  //     setCurrentValue(currentValue + '0');
+  //     setCount(count + 1);
+  //   } else if (Number.isInteger(currentValue)) {
+  //     setCurrentValue(currentValue * 10 + num);
+  //   } else {
+  //     //setCount(1);
+  //     let val = parseFloat(currentValue);
+  //     setCurrentValue(val + num / Math.pow(10, count));
+  //     setCount(count + 1);
+  //     // cur val is now float
+  //   }
+  // };
 
   // const handleDecimalClick = () => {
   //   if (decStatus) {
@@ -44,13 +48,13 @@ const App = () => {
     setPreviousValue(currentValue);
     setCurrentValue(0);
     setOperator(newOperator);
-    setCount(1);
+    //setCount(1);
     // setDecStatus(true);
   };
 
   const handleEqualClick = () => {
     // setDecStatus(true);
-    setCount(1);
+    //setCount(1);
     if (operator === '+') {
       setCurrentValue(previousValue + currentValue);
     } else if (operator === '-') {
